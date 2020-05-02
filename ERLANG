@@ -1,0 +1,81 @@
+-Why was it invented
+
+Armstrong designed Erlang with the aim of improving the development of telephony applications by creating a language better tailored to its needs. The initial version of Erlang was influenced by the programming language PLEX – used in earlier Ericsson exchanges – and was implemented in Prolog.
+"PLEX had come to the end of its useful life," Armstrong said. "It was a language that was created in 1976. For its time, it was brilliant but things had happened in computer science that had invalidated PLEX and better ways of programming were being discovered."
+Over the coming years a small team of Ericsson researchers, including Robert Virding and Mike Williams, helped Armstrong further develop and improve the language.
+"We wanted to tailor a program language for telecom systems and the results became this programming language that we now know as Erlang," Armstrong said. "Eventually, hundreds of thousands of people would begin using it but that wasn’t our aim initially. We simply wanted to create something to replace PLEX to program the AXE system."
+According to Armstrong, the language went from lab product to real applications following the collapse of the next-generation AXE-N exchange in 1995. As a result, Erlang was chosen for the next ATM exchange, AXD.
+Originally a proprietary language within Ericsson, Erlang was eventually released as open source in 1998. Since then Erlang has been adopted by companies worldwide, including Nortel and T-Mobile. 
+
+
+-When/why shall we use it
+
+Erlang is a functional language and accompanying runtime designed for highly parallel, scalable applications requiring high uptime. The original use case, and still the primary one, is to program Ericsson cellular data carrier nodes (hence "Er"-lang), which carry about 40% of global cell phone traffic. The original spec was "nine nines" uptime (99.9999999% uptime; that is 31.536 milliseconds allowable downtime per year). Erlang does this with features such as a built-in worker-supervisor message-passing model and hot-swappable code, meaning errors or code updates don't require the entire process to stop and restart in order to recover. Hot-swappable code allowing truly live updates to the program's behavior is a feature nearly unique to Erlang; most other programs and runtimes, even those designed for high uptime, have to end and be restarted to incorporate code changes.
+What sort of applications is Erlang particularly suitable for?
+Distributed, reliable, soft real-time concurrent systems.
+•	Telecommunication systems, e.g. controlling a switch or converting protocols.
+•	Servers for Internet applications, e.g. a mail transfer agent, an IMAP-4 server, an HTTP server or a WAP Stack.
+•	Telecommunication applications, e.g. handling mobility in a mobile network or providing unified messaging.
+•	Database applications which require soft realtime behaviour.
+Erlang is good at solving these sorts of problems because this is the problem domain it was originally designed for. Stating the above in terms of features:
+•	Erlang provides a simple and powerful model for error containment and fault tolerance (supervised processes).
+•	Concurrency and message passing are a fundamental to the language. Applications written in Erlang are often composed of hundreds or thousands of lightweight processes. Context switching between Erlang processes is typically one or two orders of magnitude cheaper than switching between threads in a C program.
+•	Writing applications which are made of parts which execute on different machines (i.e. distributed applications) is easy. Erlang's distribution mechanisms are transparent: programs need not be aware that they are distributed.
+•	The OTP libraries provide support for many common problems in networking and telecommunications systems.
+•	The Erlang runtime environment (a virtual machine, much like the Java virtual machine) means that code compiled on one architecture runs anywhere. The runtime system also allows code in a running system to be updated without interrupting the program.
+
+
+
+-How to setup an environment to use it in different platforms (windows, mac, linux)
+ There is a complete installation guide that covers all the configurations. This guide will give you a simple, minimal installation that will get your first Erlang shell running in no time.
+•	Install Erlang on Mac OS X
+•	Install Erlang on Linux
+•	Install Erlang on Windows
+•	Precompile package with latest versions
+•	Compiling Erlang from source
+
+Install Erlang on Mac OS X
+
+Using Homebrew:
+brew install erlang
+
+Using MacPorts:
+sudo port install erlang
+
+Install Erlang on Linux
+Most operating systems have pre-built Erlang distributions in their package management systems.
+
+For Ubuntu/Debian:
+sudo apt-get update
+sudo apt-get install erlang
+
+For Fedora:
+sudo yum install erlang
+
+For FreeBSD
+sudo pkg update
+sudo pkg install erlang
+
+Install Erlang on Windows
+Download the Window installer
+Precompile package with latest versions
+Looking for the latest stable release or a previous Erlang version? Erlang Solutions provides a precompiled installation package for OS X, Windows, Ubuntu, Debian, Fedora, CentOS, Raspbian and other platforms. They also provide an enterprise Erlang distribution.
+
+Compiling Erlang from source
+You can build Erlang from source on your own, using the Kerl script. Kerl is a script that lets you easily build different versions of Erlang with a few commands.
+Download Kerl:
+curl -O https://raw.githubusercontent.com/spawngrid/kerl/master/kerl
+chmod +x kerl
+Choose an available Erlang source release and build it like this (in this case we choose 18.0 and name it mybuild-18.0):
+./kerl list releases
+./kerl build 18.0 mybuild-18.0
+Choose a directory to install, for example ~/erlang-r16b03
+./kerl list builds
+./kerl install mybuild-18.0 ~/erlang-18.0
+Finally, add the directory ~/erlang-18.0/bin to your environment variable $PATH.
+export PATH=$PATH:~/erlang-18.0/bin
+Run erl in your terminal to start an Erlang shell:
+$ erl
+Erlang/OTP 18 [erts-7.0] [source] [64-bit] [smp:8:8] [async-threads:10] [hipe] [kernel-poll:false]Eshell V7.0  (abort with ^G)
+1>
+
