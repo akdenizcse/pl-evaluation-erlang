@@ -1,0 +1,13 @@
+SPECIFIC FEATURES ABOUT ERLANG
+
+Inspection: IBM's JVM has some pretty amazing tools for inspecting itself while running and great crash and debug tools.Erlang's are even better.
+
+ASN.1: Cryptographically validated (signed, encrypted, whatever) data structures are usually easiest in ASN.1, and Erlang has *great* facilities here as well.
+
+Binaries: I can't explain how much easier it is to deal with binaries in Erlang than C. This alone is reason enough to swap all your network code.In particular, if you deal with sockets at all, Erlang is probably the right tool.
+
+Sockets: In addition to the comments above about handling the data once you've received it, writing "from scratch" socket handling code in Erlang is easier than using any socket libraries I've dealt with. Especially with regard to cleanup when something goes wrong.
+
+Handling binaries ("How can we make validation easy?"), handling sockets ("how can we make this easy?"), segregating failures ("how should be isolate these services as processes?"), isolating data ("where do we need to deep copy to make sure we're not screwing ourselves elsewhere?"), restarting components ("we need a list of services and known states so we can restart stuff when it dies..."), multi-processing ("what approach to pooling do we need and how should the processes talk across each other?") and a slew of other service layer type issues are just non-issues in Erlang. These problems are usually harder to solve than the business problem that faces you to begin with. Having that taken care of is great.
+So its not about what you can "only do in Erlang", its really more about what you don't have to do in Erlang.
+
